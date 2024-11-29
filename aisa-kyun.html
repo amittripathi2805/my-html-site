@@ -96,8 +96,8 @@
             const prompt = document.getElementById('prompt').value;
             const imageInput = document.getElementById('image').files[0];
 
-            if (!prompt || !imageInput) {
-                alert("Both prompt and image are required.");
+            if (!prompt) {
+                alert("Question is required.");
                 return;
             }
 
