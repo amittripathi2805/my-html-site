@@ -102,7 +102,9 @@
             }
 
             // Convert the uploaded image to Base64
-            const imageBase64 = await toBase64(imageInput);
+            if (imageInput){
+                const imageBase64 = await toBase64(imageInput);
+            }
 
             // Prepare the payload
             const payload = {
