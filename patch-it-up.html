@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patch It Up Advice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        textarea, input[type="text"], button {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            border: none;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .response-container {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .response-container h3 {
+            color: #333;
+        }
+
+        .advice, .patch-up-box {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .advice ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .advice ul li {
+            margin-bottom: 10px;
+        }
+
+        .patch-up-box .message {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .patch-up-box .note {
+            margin-top: 10px;
+            color: #6c757d;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            textarea, input[type="text"], button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Patch It Up - Relationship Advice</h1>
+        <form id="adviceForm">
+            <label for="reason">What happened?</label>
+            <textarea id="reason" placeholder="Explain what happened..." required></textarea>
+
+            <label for="memories">Any shared memories?</label>
+            <textarea id="memories" placeholder="Tell us some fond memories you share..." required></textarea>
+
+            <label for="message">Custom Message</label>
+            <input type="text" id="message" placeholder="Write a message you want to convey..." required>
+
+            <button type="submit">Get Advice</button>
+        </form>
+
+        <div id="response" class="response-container" style="display: none;">
+            <h3>Here's Your Advice:</h3>
+            <div class="advice" id="advice"></div>
+            <div class="patch-up-box" id="patchUpBox"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('adviceForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const reason = document.getElementById('reason').value;
+            const sharedMemories = document.getElementById('memories').value;
+            const customMessage = document.getElementById('message').value;
+
+            const payload = {
+                reason: reason,
+                shared_memories: sharedMemories,
+                custom_message: customMessage
+            };
+
+            try {
+                const response = await fetch('https://us-central1-vml-commerce-tech.cloudfunctions.net/function-priya-demo/patch_it_up', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Display the response
+                    document.getElementById('response').style.display = 'block';
+
+                    // Display advice
+                    document.getElementById('advice').innerHTML = `
+                        <p>${result.advice}</p>
+                    `;
+
+                    // Display Patch-Up Bourbon Box message
+                    document.getElementById('patchUpBox').innerHTML = `
+                        <p class="message">${result.patch_up_box.message}</p>
+                        <p class="note">${result.patch_up_box.note}</p>
+                    `;
+                } else {
+                    alert('Something went wrong, please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again later.');
+            }
+        });
+    </script>
+</body>
+</html>
