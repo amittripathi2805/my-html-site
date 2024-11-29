@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Kit Microsite (Temporary Solution)</title>
+    <title>Project Kit Microsite1</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -90,12 +90,8 @@
                 topic: topic
             };
 
-            // Use a CORS proxy to avoid CORS errors
-            const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-            const apiUrl = 'https://us-central1-vml-commerce-tech.cloudfunctions.net/function-priya-demo/project-kit';
-
             // Make API call
-            fetch(proxyUrl + apiUrl, {
+            fetch('https://us-central1-vml-commerce-tech.cloudfunctions.net/function-priya-demo/project-kit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -107,7 +103,7 @@
                 // Display response
                 const responseContainer = document.getElementById('responseContainer');
                 responseContainer.style.display = 'block';
-                responseContainer.textContent = data.project_idea || 'No project idea received.';
+                responseContainer.textContent = data.project_idea;
             })
             .catch(error => {
                 console.error('Error:', error);
