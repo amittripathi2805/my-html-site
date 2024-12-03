@@ -24,7 +24,7 @@
 
         h1 {
             text-align: center;
-            color: #333;
+            color: #e1141e;
         }
 
         form {
@@ -43,11 +43,10 @@
             font-size: 16px;
             border-radius: 5px;
             border: 1px solid #ccc;
-            width: 100%;
         }
 
         button {
-            background-color: #28a745;
+            background-color: #e1141e;
             color: white;
             cursor: pointer;
             border: none;
@@ -55,7 +54,13 @@
         }
 
         button:hover {
-            background-color: #218838;
+            background-color: #e1141e;
+        }
+
+        video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 1.875rem;
         }
 
         .response-container {
@@ -109,8 +114,16 @@
     </style>
 </head>
 <body>
+    <div>
+        <img alt="Britannia" src="https://www.britannia.co.in/images/logo.svg" decoding="async" data-nimg="intrinsic" srcset="https://www.britannia.co.in/images/logo.svg 1x, https://www.britannia.co.in/images/logo.svg 2x" style="margin: 20px auto; display: block; height: 50px;">
+    </div>
     <div class="container">
-        <h1>Patch It Up - Relationship Advice</h1>
+        <div class="banner">
+            <div>
+                <img alt="" src="https://www.britannia.co.in/_next/image?url=https%3A%2F%2Fmedia.britannia.co.in%2FPicture1_51904187a0.jpg&amp;w=3840&amp;q=100" decoding="async" data-nimg="intrinsic" class="object-cover" style="margin:auto;display:block;height:auto;max-width:100%;border-radius:1.875rem;" srcset="https://www.britannia.co.in/_next/image?url=https%3A%2F%2Fmedia.britannia.co.in%2FPicture1_51904187a0.jpg&amp;w=1920&amp;q=100 1x, https://www.britannia.co.in/_next/image?url=https%3A%2F%2Fmedia.britannia.co.in%2FPicture1_51904187a0.jpg&amp;w=3840&amp;q=100 2x">
+            </div>
+        </div>
+        <h1>Patch It Up</h1>
         <form id="adviceForm">
             <label for="reason">What happened?</label>
             <textarea id="reason" placeholder="Explain what happened..." required></textarea>
