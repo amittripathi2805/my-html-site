@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Kit Microsite1</title>
@@ -14,15 +12,15 @@
         }
         .container {
             max-width: 800px;
-            margin: 50px auto;
+            margin: 10px auto;
             background: #fff;
-            padding: 20px;
+            padding: 5px 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         h1 {
             text-align: center;
-            color: #007BFF;
+            color: #e1141e;
         }
         form {
             margin-bottom: 20px;
@@ -40,16 +38,21 @@
             border-radius: 5px;
         }
         button {
-            background-color: #007BFF;
+            background-color: #e1141e;
             color: #fff;
             cursor: pointer;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #e1141e;
+        }
+        video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 1.875rem;
         }
         .response {
             background: #f9f9f9;
-            border-left: 4px solid #007BFF;
+            border-left: 4px solid #e1141e;
             padding: 15px;
             border-radius: 5px;
             white-space: pre-wrap;
@@ -57,17 +60,27 @@
     </style>
 </head>
 <body>
+    <div>
+        <img alt="Britannia" src="https://www.britannia.co.in/images/logo.svg" decoding="async" data-nimg="intrinsic" srcset="https://www.britannia.co.in/images/logo.svg 1x, https://www.britannia.co.in/images/logo.svg 2x" style="margin: 20px auto; display: block; height: 50px;">
+    </div>
     <div class="container">
+        <div class="banner">
+            <div>
+                <video src="https://media.britannia.co.in/Copy_of_Milk_Bikis3_1_e16eeaa616.mp4" autoplay="" muted="" loop="" playsinline="">
+                    <source src="https://media.britannia.co.in/Copy_of_Milk_Bikis3_1_e16eeaa616.mp4" type="video/mp4"><source src="https://media.britannia.co.in/Copy_of_Milk_Bikis3_1_e16eeaa616.mp4" type="video/webp">
+                </video>
+            </div>
+        </div>
         <h1>Project Kit Generator</h1>
         <form id="projectForm">
             <label for="class_standard">Class Standard:</label>
-            <input type="text" id="class_standard" name="class_standard" placeholder="Enter class standard (e.g., 8)" required>
+            <input type="text" id="class_standard" name="class_standard" placeholder="Enter class standard (e.g., 8)" required="">
             
             <label for="subject">Subject:</label>
-            <input type="text" id="subject" name="subject" placeholder="Enter subject (e.g., Science)" required>
+            <input type="text" id="subject" name="subject" placeholder="Enter subject (e.g., Science)" required="">
             
             <label for="topic">Topic:</label>
-            <input type="text" id="topic" name="topic" placeholder="Enter topic (e.g., Solar System)" required>
+            <input type="text" id="topic" name="topic" placeholder="Enter topic (e.g., Solar System)" required="">
             
             <button type="submit">Get Project Idea</button>
         </form>
@@ -111,5 +124,6 @@
             });
         });
     </script>
-</body>
-</html>
+
+
+</body></html>
