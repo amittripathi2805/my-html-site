@@ -116,7 +116,7 @@
                 // Display response
                 const responseContainer = document.getElementById('responseContainer');
                 responseContainer.style.display = 'block';
-                responseContainer.html = data.project_idea;
+                responseContainer.innerHTML = data.project_idea;
             })
             .catch(error => {
                 console.error('Error:', error);
